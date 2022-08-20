@@ -7,7 +7,7 @@ public class EenmySpawner : MonoBehaviour
     public GameObject enemypref;
     float timer;
     int delay;
-
+    int random;
     private void Start()
     {
         timer = 0.0f;
@@ -15,6 +15,10 @@ public class EenmySpawner : MonoBehaviour
     }
     private void Update()
     {
+        random = Random.Range(-2, 2);
+
+        Debug.Log(random);
+
         timer += Time.deltaTime;
 
         if (timer > delay)// 2檬 饶 利 积己
@@ -27,6 +31,6 @@ public class EenmySpawner : MonoBehaviour
     public void SpawnTower()
     {
         Instantiate(enemypref, new Vector3(transform.position.x,
-             transform.position.y, transform.position.z), Quaternion.identity);//利 橇府普 积己
+             transform.position.y + random, transform.position.z), Quaternion.identity);//利 橇府普 积己
     }
 }

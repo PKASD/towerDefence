@@ -9,6 +9,7 @@ TagManager:
   - tower
   - enemy
   - Center
+  - bullet
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Enemy
   - Water
   - UI
-  - 
-  - 
+  - Center
+  - Tower
   - 
   - 
   - 

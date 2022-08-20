@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class progressbar : MonoBehaviour
 {
-    public Slider pbar;
-    public float shild;
+    public Slider Slider;
 
-    void Start()
+    Center center;
+
+    private void Awake()
     {
-        
+        center = GameObject.Find("Center").GetComponent<Center>();
+
+        Slider.maxValue = center.shild; // ÃÖ´ë ½¯µå·®
     }
-
-    void Update()
+    private void Update()
     {
-        pbar.maxValue = shild;
-        pbar.value -= shild;
-
+        Slider.value = center.shild; // ÇöÀç ½¯µå·®
     }
 }
