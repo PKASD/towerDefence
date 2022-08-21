@@ -10,6 +10,7 @@ public class ObjDetector : MonoBehaviour
     Camera cam;
     Ray ray;
     RaycastHit2D hit;
+    Vector3 hitPosition;
 
     [Header("À¯´Ö Á¤º¸")]
     public TMP_Text unit_NameText;
@@ -38,7 +39,8 @@ public class ObjDetector : MonoBehaviour
 
                 if (hit.transform.gameObject.CompareTag("Container"))
                 {
-                    towerSpawner.SpawnTower(hit.transform);
+                    hitPosition = hit.transform.position;
+                    Debug.Log(hitPosition);
 
                     UnitInfoPanel.SetActive(false);
                     newUnitPanel.SetActive(true);
@@ -61,6 +63,10 @@ public class ObjDetector : MonoBehaviour
             }
         }
 
+    }
+    public void CreatTower()
+    {
+       towerSpawner.SpawnTower(hitPosition);
     }
 
 }

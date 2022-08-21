@@ -6,7 +6,7 @@ public class TowerSpawner : MonoBehaviour
 {
     public GameObject towerpref;
 
-    public void SpawnTower(Transform trans) {
-        Instantiate(towerpref, trans.position, Quaternion.identity);
+    public void SpawnTower(Vector3 trans) {
+        Instantiate(towerpref, trans, Quaternion.identity);
     }
 }

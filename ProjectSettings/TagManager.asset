@@ -10,6 +10,7 @@ TagManager:
   - enemy
   - Center
   - bullet
+  - ObjDetector
   layers:
   - Default
   - TransparentFX
