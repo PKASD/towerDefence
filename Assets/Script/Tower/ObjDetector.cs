@@ -4,33 +4,46 @@ using UnityEngine;
 
 public class ObjDetector : MonoBehaviour
 {
-    [SerializeField]
-    private TowerSpawner towerSpawner;
+    public TowerSpawner towerSpawner;
 
-    private Camera cam;
-    private Ray ray;
-    private RaycastHit2D hit;
+    Camera cam;
+    Ray ray;
+    RaycastHit2D hit;
 
     void Start()
     {
         cam = Camera.main;
-    }
 
-    // Update is called once per frame
+    }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))// 레이캐스트를 사용해 마우스 클릭하 오브젝트 정보 반환
         {
-            ray = cam.ScreenPointToRay(Input.mousePosition);
+            ray = cam.ScreenPointToRay(Input.mousePosition); 
 
-            if (Physics.Raycast(transform.position, transform.forward, Mathf.Infinity))
+            hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+
+            if (hit.collider != null)
             {
-                if (hit.transform.CompareTag("Tile"))
+                GameObject newUnitPanel = GameObject.Find("Upgrade").transform.GetChild(0).gameObject;
+                GameObject UpgradePanel = GameObject.Find("Upgrade").transform.GetChild(1).gameObject;
+
+                if (hit.transform.gameObject.CompareTag("Container"))
                 {
-                    towerSpawner.SpawnTower(hit.transform);
+                    //towerSpawner.SpawnTower(hit.transform);
+                    newUnitPanel.SetActive(true);
+
+                    UpgradePanel.SetActive(false);
+                }
+                else if(hit.transform.gameObject.CompareTag("tower"))
+                {
+                    newUnitPanel.SetActive(false);
+
+                    UpgradePanel.SetActive(true);
                 }
             }
-
         }
+
     }
 }
+

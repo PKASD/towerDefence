@@ -13,20 +13,24 @@ public class Status : MonoBehaviour
     public float attackRange;
     public float moveSpeed;
     protected float timer;
-    protected int delay;
+    protected float delay;
 
     [Header("Bullet")]
-    public GameObject bulletPref;
-    public Transform bulletSpawn;
+    public GameObject bulletPref;//총알 프리팹
+    public Transform bulletSpawn;//총알 생성 위치
+    public GameObject parentObj; //총알 오브젝트 부모 오브젝트
 
     public void doAttack() {
         
-        Instantiate(bulletPref, new Vector3(bulletSpawn.position.x,
+        GameObject bulletObj = Instantiate(bulletPref, new Vector3(bulletSpawn.position.x,
            bulletSpawn.position.y, bulletSpawn.position.z), Quaternion.identity);//총알 프리팹 생성
-       
+
+        bulletObj.transform.SetParent(parentObj.transform, true);//총알 프리팹의 부모 오브젝트에 하위 오브젝트로 생성
+
     }
     public void GetDamege(int n) // 데미지 입음
     {
         shild -= n;
     }
+
 }

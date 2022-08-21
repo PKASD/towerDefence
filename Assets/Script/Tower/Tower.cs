@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class Tower : Status
 {
+    Rigidbody2D rigid;
 
     void Start()
     {
-
+        rigid = GetComponent<Rigidbody2D>();
     }
-
-    void Update()
+    private void FixedUpdate()
     {
-
-    }
-
-    private void OnMouseDown()
-    {
-      
+        //doAttack();
     }
 }

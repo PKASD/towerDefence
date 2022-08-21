@@ -6,6 +6,7 @@ public class bullet : MonoBehaviour
 {
     Status status;
     Rigidbody2D bullet_rigid;
+    int damege;
 
     private void Awake()
     {
@@ -21,7 +22,6 @@ public class bullet : MonoBehaviour
         if (other.CompareTag("Center")|| other.CompareTag("tower"))
         {
             Destroy(this.gameObject);
-
         }
     }
     
