@@ -112,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 1}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &8191244416993116264
 MonoBehaviour:
@@ -126,13 +126,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd179de239bc5644080ff14c95fa5472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
-  damege: 1
-  attackSpeed: 1
+  unitName: Tree
+  shild: 100
+  damege: 10
+  attackSpeed: 10
   attackRange: 10
+  moveSpeed: 0
   bulletPref: {fileID: 7781274270242461441, guid: 7704e9535d419bf4f9fc4c0b917ebe4d, type: 3}
   bulletSpawn: {fileID: 1927311336225367765}
-  moveSpeed: 0
+  parentObj: {fileID: 3458106640792284361}
 --- !u!50 &549750670
 Rigidbody2D:
   serializedVersion: 4

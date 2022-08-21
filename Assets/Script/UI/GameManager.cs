@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
 
     int shild;
     int energy;
+
+    [Header("체력 바, 에너지 바")]
     public TMP_Text maxShildText;
     public TMP_Text curShildText;
-
     public TMP_Text maxEnergyText;
     public TMP_Text curEnergyText;
+
 
     public GameObject gameOverPanel;
 

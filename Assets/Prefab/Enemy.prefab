@@ -31,37 +31,6 @@ Transform:
   m_Father: {fileID: 5825777463551177278}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2813574940968166108
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6805814723372907032}
-  m_Layer: 0
-  m_Name: Bullet(clone)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6805814723372907032
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2813574940968166108}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.3721495, y: -4.817648, z: -0.05137793}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5825777463551177278}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4680176715135458131
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +64,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6287017206714838859}
-  - {fileID: 6805814723372907032}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -170,7 +138,7 @@ MonoBehaviour:
   moveSpeed: 50
   bulletPref: {fileID: 7781274270242461441, guid: 7704e9535d419bf4f9fc4c0b917ebe4d, type: 3}
   bulletSpawn: {fileID: 6287017206714838859}
-  parentObj: {fileID: 2813574940968166108}
+  parentObj: {fileID: 4680176715135458131}
 --- !u!50 &477348755
 Rigidbody2D:
   serializedVersion: 4

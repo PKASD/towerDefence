@@ -11,13 +11,10 @@ public class Center : Status
     [Header("Energy")]
     public int maxEnergy;
     public int curEnergy;
-
     private void Awake()
     {
-        enemy = GameObject.Find("Enemy").GetComponent<Enemy>();
+        enemy = GameObject.FindGameObjectWithTag("enemy").GetComponent<Enemy>();
     }
-
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("bullet"))

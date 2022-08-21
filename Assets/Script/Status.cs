@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Status : MonoBehaviour
 {
-    progressbar pBar;
-
     [Header("State")]
+    public string unitName;
     public int shild;
-    public int energy;
     public int damege;
     public float attackSpeed;
     public float attackRange;
@@ -21,8 +19,8 @@ public class Status : MonoBehaviour
     public Transform bulletSpawn;//총알 생성 위치
     public GameObject parentObj; //총알 오브젝트 부모 오브젝트
 
-    public void doAttack() {
-        
+    public void doAttack()
+    {
         GameObject bulletObj = Instantiate(bulletPref, new Vector3(bulletSpawn.position.x,
            bulletSpawn.position.y, bulletSpawn.position.z), Quaternion.identity);//총알 프리팹 생성
 
@@ -32,6 +30,11 @@ public class Status : MonoBehaviour
     public void GetDamege(int n) // 데미지 입음
     {
         shild -= n;
+
+        if (shild == 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }
