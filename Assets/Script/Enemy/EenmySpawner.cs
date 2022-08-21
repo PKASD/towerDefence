@@ -33,6 +33,6 @@ public class EenmySpawner : MonoBehaviour
         GameObject EnemyObj = Instantiate(enemypref, new Vector3(transform.position.x,
              transform.position.y + random, transform.position.z), Quaternion.identity);//적 프리팹 생성
 
-        EnemyObj.transform.SetParent(parentpref.transform, true);//총알 프리팹의 부모 오브젝트에 하위 오브젝트로 생성
+        EnemyObj.transform.SetParent(parentpref.transform, true);//부모 오브젝트에 하위 오브젝트로 생성
     }
 }

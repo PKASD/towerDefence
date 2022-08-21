@@ -8,6 +8,7 @@ public class Status : MonoBehaviour
 
     [Header("State")]
     public int shild;
+    public int energy;
     public int damege;
     public float attackSpeed;
     public float attackRange;
@@ -25,7 +26,7 @@ public class Status : MonoBehaviour
         GameObject bulletObj = Instantiate(bulletPref, new Vector3(bulletSpawn.position.x,
            bulletSpawn.position.y, bulletSpawn.position.z), Quaternion.identity);//총알 프리팹 생성
 
-        bulletObj.transform.SetParent(parentObj.transform, true);//총알 프리팹의 부모 오브젝트에 하위 오브젝트로 생성
+        bulletObj.transform.SetParent(parentObj.transform, true);//부모 오브젝트에 하위 오브젝트로 생성
 
     }
     public void GetDamege(int n) // 데미지 입음

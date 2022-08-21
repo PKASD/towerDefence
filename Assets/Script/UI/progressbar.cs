@@ -5,18 +5,21 @@ using UnityEngine.UI;
 
 public class progressbar : MonoBehaviour
 {
-    public Slider Slider;
+    public Slider shildSlider;
+    public Slider energySlider;
 
     Center center;
 
     private void Awake()
     {
-        center = GameObject.Find("Center").GetComponent<Center>();
+        center = GameObject.FindGameObjectWithTag("Center").GetComponent<Center>();
 
-        Slider.maxValue = center.shild; // 최대 쉴드량
+        shildSlider.maxValue = center.shild; // 최대 쉴드량
+        energySlider.maxValue = center.maxEnergy; // 최대 에너지량
     }
     private void Update()
     {
-        Slider.value = center.shild; // 현재 쉴드량
+        shildSlider.value = center.shild; // 현재 쉴드량
+        energySlider.value = center.curEnergy; // 현재 에너지량
     }
 }
