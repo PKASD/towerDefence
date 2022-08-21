@@ -9,7 +9,6 @@ public class ObjDetector : MonoBehaviour
     Container con;
     Camera cam;
 
-
     Ray ray;
     RaycastHit2D hit;
     Vector3 hitPosition;
@@ -43,9 +42,7 @@ public class ObjDetector : MonoBehaviour
 
                 if (hit.transform.gameObject.CompareTag("Container"))
                 {
-                    con = GameObject.Find(hit.transform.gameObject.name).GetComponent<Container>();
-
-                    Debug.Log(con.IsBuildTower);
+                    con = GameObject.Find(hit.transform.gameObject.name).GetComponent<Container>();//클릭한 컨테이너 오브젝트 con에 저장
 
                     hitPosition = hit.transform.position;
                     
@@ -73,7 +70,7 @@ public class ObjDetector : MonoBehaviour
     }
     public void CreatTower()
     {
-        if (!con.IsBuildTower)
+        if (!con.IsBuildTower)//타워 중복 설치 제한
         {
             towerSpawner.SpawnTower(hitPosition);
             con.IsBuildTower = true;
