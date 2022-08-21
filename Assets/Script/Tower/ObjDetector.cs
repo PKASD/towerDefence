@@ -6,13 +6,14 @@ using TMPro;
 public class ObjDetector : MonoBehaviour
 {
     public TowerSpawner towerSpawner;
+    Container con;
     Camera cam;
+
+
     Ray ray;
     RaycastHit2D hit;
     Vector3 hitPosition;
-
-    bool isTower;
-
+    
     [Header("유닛 정보")]
     public TMP_Text unit_NameText;
     public TMP_Text unit_DurationText;
@@ -20,14 +21,13 @@ public class ObjDetector : MonoBehaviour
     public TMP_Text unit_ASpeedText;
     public TMP_Text unit_ARangeText;
 
-
     void Awake()
     {
         cam = Camera.main;
     }
     void Update()
     {
-        isTower = false;
+       
         if (Input.GetMouseButtonDown(0))// 레이캐스트를 사용해 마우스 클릭 오브젝트 정보 반환
         {
             ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -43,11 +43,16 @@ public class ObjDetector : MonoBehaviour
 
                 if (hit.transform.gameObject.CompareTag("Container"))
                 {
-                    hitPosition = hit.transform.position;
+                    con = GameObject.Find(hit.transform.gameObject.name).GetComponent<Container>();
 
+                    Debug.Log(con.IsBuildTower);
+
+                    hitPosition = hit.transform.position;
+                    
                     UnitInfoPanel.SetActive(false);
                     newUnitPanel.SetActive(true);
                     UpgradePanel.SetActive(false);
+                   
                 }
                 else if (hit.transform.gameObject.CompareTag("tower"))
                 {
@@ -65,14 +70,13 @@ public class ObjDetector : MonoBehaviour
                 }
             }
         }
-
     }
     public void CreatTower()
     {
-        if (!isTower)
+        if (!con.IsBuildTower)
         {
             towerSpawner.SpawnTower(hitPosition);
-            isTower = true;
+            con.IsBuildTower = true;
         }
     }
 }
