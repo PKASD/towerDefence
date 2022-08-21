@@ -9228,6 +9228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerpref: {fileID: 3458106640792284361, guid: 931590a12715e86418cd8225b838725f, type: 3}
+  parentpref: {fileID: 359974302}
 --- !u!4 &1343314501
 Transform:
   m_ObjectHideFlags: 0
@@ -10153,7 +10154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1530544605
 MonoBehaviour:
   m_ObjectHideFlags: 0
