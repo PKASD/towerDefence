@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Tree
   consumEnergy: 50
-  shild: 100
+  shild: 10
   damege: 10
   attackSpeed: 10
   attackRange: 10

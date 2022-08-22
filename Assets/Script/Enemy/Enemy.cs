@@ -4,18 +4,10 @@ using UnityEngine;
 
 public class Enemy : Status
 {
-    Rigidbody2D rigid;
-    Tower tower;
 
-    void Start()
+    protected override void FixedUpdate()
     {
-        rigid = GetComponent<Rigidbody2D>();
-        tower = GameObject.FindGameObjectWithTag("tower").GetComponent<Tower>();
-    }
-
-    private void FixedUpdate()
-    {
-        timer += Time.deltaTime;
+        base.FixedUpdate();
         rigid.AddForce(new Vector2(0, 0.1f) * 5, ForceMode2D.Impulse);
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.left, attackRange,
             LayerMask.GetMask("Center", "Tower"));//센터, 타워 레이어 감지

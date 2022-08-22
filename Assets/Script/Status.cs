@@ -20,10 +20,25 @@ public class Status : MonoBehaviour
     public Transform bulletSpawn;//총알 생성 위치
     public GameObject parentObj; //총알 오브젝트 부모 오브젝트
 
-    SpriteRenderer render;
-    private void Awake()
+    protected SpriteRenderer render;
+    protected Rigidbody2D rigid;
+    protected Tower tower;
+    protected Enemy enemy;
+
+    protected virtual void Awake()
     {
+        rigid = GetComponent<Rigidbody2D>();
+        tower = GameObject.FindGameObjectWithTag("tower").GetComponent<Tower>();
+        enemy = GameObject.FindGameObjectWithTag("enemy").GetComponent<Enemy>();
         render = this.gameObject.GetComponent<SpriteRenderer>();
+
+    }
+    protected virtual void FixedUpdate()
+    {
+        timer += Time.deltaTime;
+
+        delay = 10.0f / attackSpeed;// 공격 속도
+
     }
     public void DoAttack()//총알 발사
     {
@@ -38,15 +53,16 @@ public class Status : MonoBehaviour
         shild -= n;
         if (shild > 0)
         {
-            render.color = new Color32(200, 200, 200, 255);
+            render.color = new Color32(200, 200, 200, 255);//피격 이펙트
+            Invoke("OffDamege", 0.1f);
         }
-        if (shild <= 0)
+        if(shild <= 0)
         {
             Destroy(this.gameObject);
         }
-        Invoke("OffDamege", 0.2f);
+
     }
-    void OffDamege() {
+    void OffDamege() {//피격 이펙트 종료
         render.color = new Color(1, 1, 1, 1);
     }
 

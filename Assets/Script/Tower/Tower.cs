@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class Tower : Status
 {
-    Rigidbody2D rigid;
-    Enemy enemy;
-    private void Awake()
+    protected override void FixedUpdate()
     {
-        rigid = GetComponent<Rigidbody2D>();
-        enemy = GameObject.FindGameObjectWithTag("enemy").GetComponent<Enemy>();
-    }
-    private void FixedUpdate()
-    {
-        timer += Time.deltaTime;
-
-        delay = 10.0f / attackSpeed;// 공격 속도
-
+        base.FixedUpdate();
         if (timer > delay)// 1초 후 공격
         {
             timer = 0;

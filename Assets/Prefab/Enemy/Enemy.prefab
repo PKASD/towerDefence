@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: 
   consumEnergy: 0
-  shild: 100
+  shild: 30
   damege: 10
   attackSpeed: 5
   attackRange: 5

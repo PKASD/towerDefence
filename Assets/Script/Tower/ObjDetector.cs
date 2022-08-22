@@ -10,12 +10,12 @@ public class ObjDetector : MonoBehaviour
     public TowerSpawner towerSpawner;
     Container con;
     Camera cam;
-    
+
 
     Ray ray;
     RaycastHit2D hit;
     Vector3 hitPosition;
-    
+
     [Header("유닛 정보")]
     public TMP_Text unit_NameText;
     public TMP_Text unit_DurationText;
@@ -40,6 +40,7 @@ public class ObjDetector : MonoBehaviour
                 //public 으로 수정할 것
                 GameObject newUnitPanel = GameObject.Find("Upgrade").transform.GetChild(0).gameObject;
                 GameObject UpgradePanel = GameObject.Find("Upgrade").transform.GetChild(1).gameObject;
+
                 GameObject UnitInfoPanel = GameObject.Find("Unitinfo").transform.GetChild(0).gameObject;
 
                 if (hit.transform.gameObject.CompareTag("Container"))
@@ -47,11 +48,12 @@ public class ObjDetector : MonoBehaviour
                     con = GameObject.Find(hit.transform.gameObject.name).GetComponent<Container>();//클릭한 컨테이너 오브젝트 con에 저장
 
                     hitPosition = hit.transform.position;
-                    
+
                     UnitInfoPanel.SetActive(false);
                     newUnitPanel.SetActive(true);
                     UpgradePanel.SetActive(false);
-                   
+
+                    con.IsBuildTower = false;
                 }
                 else if (hit.transform.gameObject.CompareTag("tower"))
                 {
@@ -70,21 +72,20 @@ public class ObjDetector : MonoBehaviour
             }
         }
     }
+    //선택한 컨테이너 오브젝트 타워 설치 하면 bool 설정
     public void CreatTower()
     {
         if (!con.IsBuildTower)//타워 중복 설치 제한
         {
+            Debug.Log("CreatTower " + con.IsBuildTower);
             if (center.curEnergy > tower.consumEnergy) //최소 에너지
             {
                 towerSpawner.SpawnTower(hitPosition);//선택 오브젝트 위치에 타워 설치
                 center.curEnergy -= tower.consumEnergy;
                 con.IsBuildTower = true;
             }
-            else
-            {
-                Debug.Log("에너지가 부족합니다.");
-            }
         }
     }
+
 }
 
