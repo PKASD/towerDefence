@@ -34,7 +34,7 @@ public class Center : Status
     {
         if (collision.CompareTag("bullet"))
         {
-            GetDamege(enemy.damege);
+            OnDamege(enemy.damege);
         }
     }
 }

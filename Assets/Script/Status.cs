@@ -20,6 +20,11 @@ public class Status : MonoBehaviour
     public Transform bulletSpawn;//총알 생성 위치
     public GameObject parentObj; //총알 오브젝트 부모 오브젝트
 
+    SpriteRenderer render;
+    private void Awake()
+    {
+        render = this.gameObject.GetComponent<SpriteRenderer>();
+    }
     public void DoAttack()//총알 발사
     {
         GameObject bulletObj = Instantiate(bulletPref, new Vector3(bulletSpawn.position.x,
@@ -28,14 +33,21 @@ public class Status : MonoBehaviour
         bulletObj.transform.SetParent(parentObj.transform, true);//부모 오브젝트에 하위 오브젝트로 생성
 
     }
-    public void GetDamege(int n) // 데미지 입음
+    public void OnDamege(int n) // 데미지 입음
     {
         shild -= n;
-
+        if (shild > 0)
+        {
+            render.color = new Color32(200, 200, 200, 255);
+        }
         if (shild <= 0)
         {
             Destroy(this.gameObject);
         }
+        Invoke("OffDamege", 0.2f);
+    }
+    void OffDamege() {
+        render.color = new Color(1, 1, 1, 1);
     }
 
 }

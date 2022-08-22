@@ -28,7 +28,7 @@ public class Tower : Status
     {
         if (collision.CompareTag("bullet"))
         {
-           GetDamege(enemy.damege);
+            OnDamege(enemy.damege);
         }
     }
 }
