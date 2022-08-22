@@ -10,7 +10,7 @@ public class ObjDetector : MonoBehaviour
     public TowerSpawner towerSpawner;
     Container con;
     Camera cam;
-
+    SpriteRenderer render;
 
     Ray ray;
     RaycastHit2D hit;
@@ -23,9 +23,12 @@ public class ObjDetector : MonoBehaviour
     public TMP_Text unit_ASpeedText;
     public TMP_Text unit_ARangeText;
 
+
+
     void Awake()
     {
         cam = Camera.main;
+
     }
     void Update()
     {
@@ -35,8 +38,11 @@ public class ObjDetector : MonoBehaviour
 
             hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
+
+
             if (hit.collider != null)
             {
+
                 //public 으로 수정할 것
                 GameObject newUnitPanel = GameObject.Find("Upgrade").transform.GetChild(0).gameObject;
                 GameObject UpgradePanel = GameObject.Find("Upgrade").transform.GetChild(1).gameObject;
@@ -46,12 +52,20 @@ public class ObjDetector : MonoBehaviour
                 if (hit.transform.gameObject.CompareTag("Container"))
                 {
                     con = GameObject.Find(hit.transform.gameObject.name).GetComponent<Container>();//클릭한 컨테이너 오브젝트 con에 저장
+                    render = con.gameObject.GetComponent<SpriteRenderer>();
 
                     hitPosition = hit.transform.position;
 
                     UnitInfoPanel.SetActive(false);
                     newUnitPanel.SetActive(true);
                     UpgradePanel.SetActive(false);
+
+/*                    render.color = new Color32(23, 23, 23, 73);//클릭 시 색 변화
+
+                    if (hit.transform.gameObject.CompareTag("Container"))
+                    {
+                        render.color = new Color32(255, 255, 255, 70);
+                    }*/
 
                     con.IsBuildTower = false;
                 }
@@ -70,9 +84,10 @@ public class ObjDetector : MonoBehaviour
                     UpgradePanel.SetActive(true);
                 }
             }
+
         }
+      
     }
-    //선택한 컨테이너 오브젝트 타워 설치 하면 bool 설정
     public void CreatTower()
     {
         if (!con.IsBuildTower)//타워 중복 설치 제한
@@ -83,8 +98,10 @@ public class ObjDetector : MonoBehaviour
                 towerSpawner.SpawnTower(hitPosition);//선택 오브젝트 위치에 타워 설치
                 center.curEnergy -= tower.consumEnergy;
                 con.IsBuildTower = true;
+                render.color = new Color32(255, 255, 255, 70);//타워 선택하면 
             }
         }
+
     }
 
 }
