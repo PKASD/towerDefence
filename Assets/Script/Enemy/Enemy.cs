@@ -16,7 +16,7 @@ public class Enemy : Status
     private void FixedUpdate()
     {
         timer += Time.deltaTime;
-
+        rigid.AddForce(new Vector2(0, 0.1f) * 5, ForceMode2D.Impulse);
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.left, attackRange,
             LayerMask.GetMask("Center", "Tower"));//센터, 타워 레이어 감지
 
@@ -49,7 +49,8 @@ public class Enemy : Status
     {
         if (collision.CompareTag("TowerBullet"))
         {
-            GetDamege(tower.damege);
+            OnDamege(tower.damege);
+           
         }
     }
 }
