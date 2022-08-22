@@ -11,6 +11,7 @@ TagManager:
   - Center
   - bullet
   - ObjDetector
+  - TowerBullet
   layers:
   - Default
   - TransparentFX
