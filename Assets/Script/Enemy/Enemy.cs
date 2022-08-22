@@ -5,10 +5,12 @@ using UnityEngine;
 public class Enemy : Status
 {
     Rigidbody2D rigid;
+    Tower tower;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        tower = GameObject.FindGameObjectWithTag("tower").GetComponent<Tower>();
     }
 
     private void FixedUpdate()
@@ -43,5 +45,11 @@ public class Enemy : Status
         transform.position += new Vector3(-1, 0, 0) * moveSpeed / 1000;//Àû ÀÌµ¿
 
     }
-
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("TowerBullet"))
+        {
+            GetDamege(tower.damege);
+        }
+    }
 }
