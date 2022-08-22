@@ -5,9 +5,12 @@ using TMPro;
 
 public class ObjDetector : MonoBehaviour
 {
+    public Tower tower;
+    public Center center;
     public TowerSpawner towerSpawner;
     Container con;
     Camera cam;
+    
 
     Ray ray;
     RaycastHit2D hit;
@@ -26,7 +29,6 @@ public class ObjDetector : MonoBehaviour
     }
     void Update()
     {
-       
         if (Input.GetMouseButtonDown(0))// 레이캐스트를 사용해 마우스 클릭 오브젝트 정보 반환
         {
             ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -72,8 +74,16 @@ public class ObjDetector : MonoBehaviour
     {
         if (!con.IsBuildTower)//타워 중복 설치 제한
         {
-            towerSpawner.SpawnTower(hitPosition);
-            con.IsBuildTower = true;
+            if (center.curEnergy > tower.consumEnergy) //최소 에너지
+            {
+                towerSpawner.SpawnTower(hitPosition);//선택 오브젝트 위치에 타워 설치
+                center.curEnergy -= tower.consumEnergy;
+                con.IsBuildTower = true;
+            }
+            else
+            {
+                Debug.Log("에너지가 부족합니다.");
+            }
         }
     }
 }

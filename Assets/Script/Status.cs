@@ -6,6 +6,7 @@ public class Status : MonoBehaviour
 {
     [Header("State")]
     public string unitName;
+    public int consumEnergy; 
     public int shild;
     public int damege;
     public float attackSpeed;
@@ -13,13 +14,13 @@ public class Status : MonoBehaviour
     public float moveSpeed;
     protected float timer;
     protected float delay;
-
+   
     [Header("Bullet")]
     public GameObject bulletPref;//ÃÑ¾Ë ÇÁ¸®ÆÕ
     public Transform bulletSpawn;//ÃÑ¾Ë »ý¼º À§Ä¡
     public GameObject parentObj; //ÃÑ¾Ë ¿ÀºêÁ§Æ® ºÎ¸ð ¿ÀºêÁ§Æ®
 
-    public void doAttack()
+    public void doAttack()//ÃÑ¾Ë ¹ß»ç
     {
         GameObject bulletObj = Instantiate(bulletPref, new Vector3(bulletSpawn.position.x,
            bulletSpawn.position.y, bulletSpawn.position.z), Quaternion.identity);//ÃÑ¾Ë ÇÁ¸®ÆÕ »ý¼º
