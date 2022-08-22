@@ -20,7 +20,7 @@ public class Status : MonoBehaviour
     public Transform bulletSpawn;//총알 생성 위치
     public GameObject parentObj; //총알 오브젝트 부모 오브젝트
 
-    public void doAttack()//총알 발사
+    public void DoAttack()//총알 발사
     {
         GameObject bulletObj = Instantiate(bulletPref, new Vector3(bulletSpawn.position.x,
            bulletSpawn.position.y, bulletSpawn.position.z), Quaternion.identity);//총알 프리팹 생성

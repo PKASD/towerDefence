@@ -32,7 +32,7 @@ public class Enemy : Status
                 {
                     timer = 0;
 
-                    doAttack();
+                    DoAttack();
                 }
             }
         }
@@ -43,11 +43,5 @@ public class Enemy : Status
         transform.position += new Vector3(-1, 0, 0) * moveSpeed / 1000;//Àû ÀÌµ¿
 
     }
-    /*     void OnTriggerEnter2D(Collider2D collision)
-     {
-         if (collision.CompareTag("bullet"))
-         {
-             GetDamege(enemy.damege);
-         }
-     }*/
+
 }

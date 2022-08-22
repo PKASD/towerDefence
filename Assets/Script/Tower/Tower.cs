@@ -13,7 +13,16 @@ public class Tower : Status
     }
     private void FixedUpdate()
     {
-        //doAttack();
+        timer += Time.deltaTime;
+
+        delay = 10.0f / attackSpeed;// 공격 속도
+
+        if (timer > delay)// 1초 후 공격
+        {
+            timer = 0;
+
+            DoAttack();
+        }
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

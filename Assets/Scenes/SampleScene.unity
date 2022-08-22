@@ -4077,7 +4077,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.12243724, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4088,7 +4088,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.3, y: 5}
+  m_Size: {x: 4.5448747, y: 5}
   m_EdgeRadius: 0
 --- !u!114 &705284775
 MonoBehaviour:
@@ -4103,6 +4103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 
+  consumEnergy: 0
   shild: 1000
   damege: 0
   attackSpeed: 0
@@ -4113,6 +4114,8 @@ MonoBehaviour:
   parentObj: {fileID: 0}
   maxEnergy: 1000
   curEnergy: 200
+  increaseEnergyTime: 0.2
+  increaseEnergy: 1
 --- !u!1 &706440409
 GameObject:
   m_ObjectHideFlags: 0
@@ -4492,6 +4495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3b729f63203dc4fb3aa7e76d9be740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 8191244416993116264, guid: 931590a12715e86418cd8225b838725f, type: 3}
+  center: {fileID: 705284775}
   towerSpawner: {fileID: 1343314500}
   unit_NameText: {fileID: 515486529}
   unit_DurationText: {fileID: 524902655}
@@ -7998,7 +8003,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 477348753, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 477348755, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
+      propertyPath: m_Simulated
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4680176715135458131, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
       propertyPath: m_Name
@@ -8006,7 +8015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4992238054932876151, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5475318729355884877, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
       propertyPath: unitName
@@ -8014,7 +8023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5475318729355884877, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5475318729355884877, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
       propertyPath: attackRange
@@ -8030,7 +8039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5825777463551177278, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.05
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 5825777463551177278, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14138,13 +14147,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 359974303}
     m_Modifications:
+    - target: {fileID: 549750670, guid: 931590a12715e86418cd8225b838725f, type: 3}
+      propertyPath: m_Constraints
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3458106640792284361, guid: 931590a12715e86418cd8225b838725f, type: 3}
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 4543006630915932921, guid: 931590a12715e86418cd8225b838725f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5400044524892210825, guid: 931590a12715e86418cd8225b838725f, type: 3}
       propertyPath: m_RootOrder
@@ -14192,15 +14205,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7294139804543576394, guid: 931590a12715e86418cd8225b838725f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191244416993116264, guid: 931590a12715e86418cd8225b838725f, type: 3}
+      propertyPath: shild
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 8191244416993116264, guid: 931590a12715e86418cd8225b838725f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8191244416993116264, guid: 931590a12715e86418cd8225b838725f, type: 3}
       propertyPath: bulletPref
       value: 
-      objectReference: {fileID: 710744847791589820, guid: ef7dbd5dac3ca8c44b26ea9e1bc78182, type: 3}
+      objectReference: {fileID: 6183071230108794897, guid: 59f5f619ebd9f0f45ae6d3f2d6357ede, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 931590a12715e86418cd8225b838725f, type: 3}
