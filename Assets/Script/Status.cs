@@ -32,7 +32,7 @@ public class Status : MonoBehaviour
     {
         shild -= n;
 
-        if (shild == 0)
+        if (shild <= 0)
         {
             Destroy(this.gameObject);
         }
