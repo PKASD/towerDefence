@@ -7,31 +7,31 @@ public class EenmySpawner : MonoBehaviour
     public GameObject enemypref;
     public GameObject parentpref;//적 오브젝트의 부모 오브젝트
 
-    float timer;
-    int delay;
+    public int delay;
     int random;
-    private void Start()
+
+    public int maxEnemyCount;
+
+    private void Awake()
     {
-        timer = 0.0f;
-        delay = 2;
+        StartCoroutine("SpawnEnemy");
     }
-    private void Update()
+
+    private IEnumerator SpawnEnemy()//최대 적 수만큼 생성
     {
-        random = Random.Range(-2, 2);
-
-        timer += Time.deltaTime;
-
-        if (timer > delay)// 2초 후 적 생성
+        int enemyCount = 0;
+        while (enemyCount < maxEnemyCount)
         {
-            timer = 0;
-            SpawnTower();
+            random = Random.Range(-2, 2);
+            enemyCount++;
+            CreatEnemy();
+            yield return new WaitForSeconds(delay);
         }
-
     }
-    public void SpawnTower()
+    void CreatEnemy()//적 프리팹 생성
     {
         GameObject EnemyObj = Instantiate(enemypref, new Vector3(transform.position.x,
-             transform.position.y + random, transform.position.z), Quaternion.identity);//적 프리팹 생성
+                transform.position.y + random, transform.position.z), Quaternion.identity);
 
         EnemyObj.transform.SetParent(parentpref.transform, true);//부모 오브젝트에 하위 오브젝트로 생성
     }
