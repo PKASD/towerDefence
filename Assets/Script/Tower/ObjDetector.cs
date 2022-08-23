@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class ObjDetector : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class ObjDetector : MonoBehaviour
     Ray ray;
     RaycastHit2D hit;
     Vector3 hitPosition;
+
+    GameObject clickTower;
 
     [Header("유닛 정보")]
     public TMP_Text unit_NameText;
@@ -42,42 +45,33 @@ public class ObjDetector : MonoBehaviour
 
             hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
-
-
             if (hit.collider != null)
             {
-
                 //public 으로 수정할 것
                 GameObject newUnitPanel = GameObject.Find("Upgrade").transform.GetChild(0).gameObject;
                 GameObject UpgradePanel = GameObject.Find("Upgrade").transform.GetChild(1).gameObject;
 
                 GameObject UnitInfoPanel = GameObject.Find("Unitinfo").transform.GetChild(0).gameObject;
 
+                hitPosition = hit.transform.position;
                 if (hit.transform.gameObject.CompareTag("Container"))
                 {
                     con = GameObject.Find(hit.transform.gameObject.name).GetComponent<Container>();//클릭한 컨테이너 오브젝트 con에 저장
                     render = con.gameObject.GetComponent<SpriteRenderer>();
 
-                    hitPosition = hit.transform.position;
-
                     UnitInfoPanel.SetActive(false);
                     newUnitPanel.SetActive(true);
                     UpgradePanel.SetActive(false);
 
-                    /*                    render.color = new Color32(23, 23, 23, 73);//클릭 시 색 변화
-
-                                        if (hit.transform.gameObject.CompareTag("Container"))
-                                        {
-                                            render.color = new Color32(255, 255, 255, 70);
-                                        }*/
-
                     con.IsBuildTower = false;
-                    
                 }
+
                 else if (hit.transform.gameObject.CompareTag("tower"))
                 {
                     Tower tower = hit.transform.GetComponent<Tower>(); // 클릭한 타워 오브젝트의 Tower 컴포넌트를 저장
-                    
+
+                    clickTower = hit.transform.gameObject;
+
                     unit_NameText.text = tower.unitName;
                     unit_DurationText.text = tower.shild.ToString();
                     unit_DamegeText.text = tower.damege.ToString();
@@ -89,38 +83,53 @@ public class ObjDetector : MonoBehaviour
                     UpgradePanel.SetActive(true);
                 }
             }
-
         }
-
     }
+
     public void CreatTower()
     {
+        GameObject towerpref;
+        GameObject clickObj = EventSystem.current.currentSelectedGameObject;
         if (!con.IsBuildTower)//타워 중복 설치 제한
         {
             if (center.curEnergy > tower.consumEnergy) //최소 에너지
             {
-                GameObject towerpref;
-
-                switch (tower.name)
-                {
-                    case "Tower_Red":
-                        towerpref = Tower_Red;
-                        break;
-                    case "Tower_Blue":
-                        towerpref = Tower_Blue;
-                        break;
-                    case "Tower_Green":
-                        towerpref = Tower_Green;
-                        break;
-                    default:
-                        towerpref = Tower;
-                        break;
-                }
-                Debug.Log(towerpref);
-                towerSpawner.SpawnTower(towerpref,hitPosition);//선택 오브젝트 위치에 타워 설치
+                towerpref = Tower;
+                towerSpawner.SpawnTower(towerpref, hitPosition);//선택 오브젝트 위치에 타워 설치
                 center.curEnergy -= tower.consumEnergy;
                 con.IsBuildTower = true;
                 render.color = new Color32(255, 255, 255, 70);//타워 선택하면 
+            }
+        }
+        else
+        {
+            if (clickTower != null)
+            {
+                if (center.curEnergy > tower.consumEnergy) //최소 에너지
+                {
+                    switch (clickObj.name)
+                    {
+                        case "Tower_Red":
+                            towerpref = Tower_Red;
+                            Destroy(clickTower);
+                            towerSpawner.SpawnTower(towerpref, hitPosition);
+                            break;
+                        case "Tower_Blue":
+                            towerpref = Tower_Blue;
+                            Destroy(clickTower);
+                            towerSpawner.SpawnTower(towerpref, hitPosition);
+                            break;
+                        case "Tower_Green":
+                            towerpref = Tower_Green;
+                            Destroy(clickTower);
+                            towerSpawner.SpawnTower(towerpref, hitPosition);
+                            break;
+                        default:
+                            towerpref = Tower;
+                            towerSpawner.SpawnTower(towerpref, hitPosition);
+                            break;
+                    }
+                }
             }
         }
 
@@ -128,3 +137,11 @@ public class ObjDetector : MonoBehaviour
 
 }
 
+
+
+/*                    render.color = new Color32(23, 23, 23, 73);//클릭 시 색 변화
+
+                    if (hit.transform.gameObject.CompareTag("Container"))
+                    {
+                        render.color = new Color32(255, 255, 255, 70);
+                    }*/
