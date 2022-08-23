@@ -9,12 +9,12 @@ public class Enemy : Status
     {
         base.FixedUpdate();
  
-        rigid.AddForce(new Vector2(0, 0.1f) * 5, ForceMode2D.Impulse);
+        //rigid.AddForce(new Vector2(0, 0.1f) * 5, ForceMode2D.Impulse); ??
 
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.left, attackRange,
             LayerMask.GetMask("Center", "Tower"));//센터, 타워 레이어 감지
 
-        Debug.DrawRay(rigid.position, Vector3.left, new Color(0, 1, 0)); // 레이캐스트 출력
+        Debug.DrawRay(rigid.position, Vector3.left * attackRange, new Color(0, 1, 0)); // 레이캐스트 출력
 
         if (rayHit.collider != null)
         {
