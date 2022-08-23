@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Tower_Blue
-  consumEnergy: 50
-  shild: 10
+  consumEnergy: 150
+  shild: 50
   damege: 20
   attackSpeed: 10
   attackRange: 10

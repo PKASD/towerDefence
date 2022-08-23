@@ -23,6 +23,10 @@ public class ObjDetector : MonoBehaviour
     public TMP_Text unit_ASpeedText;
     public TMP_Text unit_ARangeText;
 
+    public GameObject Tower;
+    public GameObject Tower_Red;
+    public GameObject Tower_Blue;
+    public GameObject Tower_Green;
 
 
     void Awake()
@@ -60,19 +64,20 @@ public class ObjDetector : MonoBehaviour
                     newUnitPanel.SetActive(true);
                     UpgradePanel.SetActive(false);
 
-/*                    render.color = new Color32(23, 23, 23, 73);//클릭 시 색 변화
+                    /*                    render.color = new Color32(23, 23, 23, 73);//클릭 시 색 변화
 
-                    if (hit.transform.gameObject.CompareTag("Container"))
-                    {
-                        render.color = new Color32(255, 255, 255, 70);
-                    }*/
+                                        if (hit.transform.gameObject.CompareTag("Container"))
+                                        {
+                                            render.color = new Color32(255, 255, 255, 70);
+                                        }*/
 
                     con.IsBuildTower = false;
+                    
                 }
                 else if (hit.transform.gameObject.CompareTag("tower"))
                 {
                     Tower tower = hit.transform.GetComponent<Tower>(); // 클릭한 타워 오브젝트의 Tower 컴포넌트를 저장
-
+                    
                     unit_NameText.text = tower.unitName;
                     unit_DurationText.text = tower.shild.ToString();
                     unit_DamegeText.text = tower.damege.ToString();
@@ -86,7 +91,7 @@ public class ObjDetector : MonoBehaviour
             }
 
         }
-      
+
     }
     public void CreatTower()
     {
@@ -94,7 +99,25 @@ public class ObjDetector : MonoBehaviour
         {
             if (center.curEnergy > tower.consumEnergy) //최소 에너지
             {
-                towerSpawner.SpawnTower(hitPosition);//선택 오브젝트 위치에 타워 설치
+                GameObject towerpref;
+
+                switch (tower.name)
+                {
+                    case "Tower_Red":
+                        towerpref = Tower_Red;
+                        break;
+                    case "Tower_Blue":
+                        towerpref = Tower_Blue;
+                        break;
+                    case "Tower_Green":
+                        towerpref = Tower_Green;
+                        break;
+                    default:
+                        towerpref = Tower;
+                        break;
+                }
+                Debug.Log(towerpref);
+                towerSpawner.SpawnTower(towerpref,hitPosition);//선택 오브젝트 위치에 타워 설치
                 center.curEnergy -= tower.consumEnergy;
                 con.IsBuildTower = true;
                 render.color = new Color32(255, 255, 255, 70);//타워 선택하면 

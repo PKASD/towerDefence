@@ -158,9 +158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Tower_Green
-  consumEnergy: 50
-  shild: 10
-  damege: 10
+  consumEnergy: 150
+  shild: 100
+  damege: 5
   attackSpeed: 10
   attackRange: 10
   moveSpeed: 0

@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Tower_Red
-  consumEnergy: 50
-  shild: 10
+  consumEnergy: 150
+  shild: 30
   damege: 30
   attackSpeed: 10
   attackRange: 10
