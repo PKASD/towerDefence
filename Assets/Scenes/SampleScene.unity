@@ -10920,7 +10920,7 @@ MonoBehaviour:
   enemypref: {fileID: 4680176715135458131, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
   parentpref: {fileID: 1393147187}
   delay: 1
-  maxEnemyCount: 1
+  maxEnemyCount: 10
   enemyCount: 0
 --- !u!4 &1530544606
 Transform:

@@ -157,10 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd179de239bc5644080ff14c95fa5472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Tree
+  unitName: Tower_Red
   consumEnergy: 50
   shild: 10
-  damege: 10
+  damege: 30
   attackSpeed: 10
   attackRange: 10
   moveSpeed: 0

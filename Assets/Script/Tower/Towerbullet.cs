@@ -7,19 +7,27 @@ public class Towerbullet : MonoBehaviour
     Status status;
     Rigidbody2D towerBullet_rigid;
     Tower tower;
-    int damege;
+    public int damege;
+    GameObject bulparent;
 
     private void Awake()
     {
-        tower = GameObject.FindGameObjectWithTag("tower").GetComponent<Tower>();//Tower 오브젝트 저장
-        damege = tower.damege; //Tower의 damege 저장
+
+        tower = GameObject.FindGameObjectWithTag("TowerBullet").GetComponentInParent<Tower>();//Tower 오브젝트 저장
+
+        damege = 10; //Tower의 damege 저장
+      //damege = transform.parent.gameObject.GetComponent<Tower>().damege;//Tower의 damege 저장
 
         towerBullet_rigid = gameObject.GetComponent<Rigidbody2D>();
+
     }
 
     void FixedUpdate()
     {
         towerBullet_rigid.AddForce(Vector2.right * 1, ForceMode2D.Impulse);//총알 이동
+
+        
+        //Debug.Log(transform.parent.gameObject.GetComponent<Tower>().name+"의 데미지는 = "+damege);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
