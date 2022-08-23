@@ -12,6 +12,7 @@ TagManager:
   - bullet
   - ObjDetector
   - TowerBullet
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

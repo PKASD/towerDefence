@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EenmySpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemypref;
     public GameObject parentpref;//적 오브젝트의 부모 오브젝트
@@ -11,7 +11,7 @@ public class EenmySpawner : MonoBehaviour
     int random;
 
     public int maxEnemyCount;
-
+    public int enemyCount;
     private void Awake()
     {
         StartCoroutine("SpawnEnemy");
@@ -19,7 +19,7 @@ public class EenmySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemy()//최대 적 수만큼 생성
     {
-        int enemyCount = 0;
+        enemyCount = 0;
         while (enemyCount < maxEnemyCount)
         {
             random = Random.Range(-2, 2);

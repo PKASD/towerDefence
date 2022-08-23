@@ -92,7 +92,6 @@ public class ObjDetector : MonoBehaviour
     {
         if (!con.IsBuildTower)//타워 중복 설치 제한
         {
-            Debug.Log("CreatTower " + con.IsBuildTower);
             if (center.curEnergy > tower.consumEnergy) //최소 에너지
             {
                 towerSpawner.SpawnTower(hitPosition);//선택 오브젝트 위치에 타워 설치

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOver : MonoBehaviour
+public class GameWinOver : MonoBehaviour
 {
-    public GameObject Panel;
     public void Restart() { // æ¿ ¿ÁΩ√¿€
         SceneManager.LoadScene(0);
     }
