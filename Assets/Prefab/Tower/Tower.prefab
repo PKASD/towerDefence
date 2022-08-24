@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -422220587, guid: 554b1faac6e222e42a9fbebc8f2d21fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -136,6 +136,7 @@ MonoBehaviour:
   bulletPref: {fileID: 6183071230108794897, guid: 59f5f619ebd9f0f45ae6d3f2d6357ede, type: 3}
   bulletSpawn: {fileID: 1927311336225367765}
   parentObj: {fileID: 3458106640792284361}
+  leftEnemy: 0
 --- !u!50 &549750670
 Rigidbody2D:
   serializedVersion: 4
