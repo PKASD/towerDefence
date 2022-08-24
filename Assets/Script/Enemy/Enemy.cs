@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Enemy : Status
 {
-
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
- 
+
         //rigid.AddForce(new Vector2(0, 0.1f) * 5, ForceMode2D.Impulse); ??
 
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.left, attackRange,
@@ -22,8 +21,7 @@ public class Enemy : Status
             {
                 delay = 10.0f / attackSpeed;// 공격 속도
 
-                transform.position += new Vector3(1, 0, 0) * moveSpeed / 1000; // 사거리에서 멈춤
-
+                Stop();
                 if (timer > delay)// 1초 후 공격
                 {
                     timer = 0;
@@ -33,11 +31,17 @@ public class Enemy : Status
             }
         }
         Move();
+
     }
     public void Move()
     {
+        this.gameObject.GetComponent<Animator>().enabled = true;
         transform.position += new Vector3(-1, 0, 0) * moveSpeed / 1000;//적 이동
-
+    }
+    public void Stop()
+    {
+        this.gameObject.GetComponent<Animator>().enabled = true;
+        transform.position += new Vector3(1, 0, 0) * moveSpeed / 1000;//적 이동
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -53,4 +57,5 @@ public class Enemy : Status
             OnDamege(hitdamege);
         }
     }
+
 }

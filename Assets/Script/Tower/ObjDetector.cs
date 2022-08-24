@@ -76,18 +76,17 @@ public class ObjDetector : MonoBehaviour
                     clickTower = hit.transform.gameObject;
                     towerredner = clickTower.GetComponent<SpriteRenderer>();
                    
-                        unit_NameText.text = tower.unitName;
-                        unit_DurationText.text = tower.shild.ToString();
-                        unit_DamegeText.text = tower.damege.ToString();
-                        unit_ASpeedText.text = tower.attackSpeed.ToString();
-                        unit_ARangeText.text = tower.attackRange.ToString();
-                    
                     UnitInfoPanel.SetActive(true);
                     newUnitPanel.SetActive(false);
                     UpgradePanel.SetActive(true);
                 }
             }
         }
+        unit_NameText.text = tower.unitName;
+        unit_DurationText.text = tower.shild.ToString();
+        unit_DamegeText.text = tower.damege.ToString();
+        unit_ASpeedText.text = tower.attackSpeed.ToString();
+        unit_ARangeText.text = tower.attackRange.ToString();
     }
 
     public void CreatTower()
