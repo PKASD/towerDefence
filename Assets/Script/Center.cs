@@ -9,7 +9,7 @@ public class Center : Status
     [Header("Energy")]
     public int maxEnergy;
     public int curEnergy;
-    public float increaseEnergyTime = 0.2f;//에너지 증가 시간
+    public float increaseEnergyTime = 1;//에너지 증가 시간
     public int increaseEnergy = 1;//에너지 증가량
 
     private void Update()

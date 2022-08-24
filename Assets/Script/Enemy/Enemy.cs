@@ -41,7 +41,7 @@ public class Enemy : Status
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("TowerBullet"))
+        if (collision.CompareTag("TowerBullet"))// 각 타워별 데미지에 피격
         {
             GameObject towerbul;
             towerbul = collision.gameObject;

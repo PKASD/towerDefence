@@ -136,6 +136,7 @@ MonoBehaviour:
   bulletPref: {fileID: 6228129998108596309, guid: 5cc093c3724c30947a24dea37db771a6, type: 3}
   bulletSpawn: {fileID: 9157973111539852238}
   parentObj: {fileID: 429661850789165401}
+  leftEnemy: 0
 --- !u!50 &7788870951848761968
 Rigidbody2D:
   serializedVersion: 4
