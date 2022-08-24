@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa7c846ae8e83948b8ae47c45c16317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damege: 30
+  damege: 0

@@ -160,7 +160,7 @@ MonoBehaviour:
   unitName: Tower_Red
   consumEnergy: 150
   shild: 30
-  damege: 30
+  damege: 10
   attackSpeed: 10
   attackRange: 10
   moveSpeed: 0

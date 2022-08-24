@@ -6,13 +6,12 @@ public class Towerbullet : MonoBehaviour
 {
     Status status;
     Rigidbody2D towerBullet_rigid;
-    Tower tower;
+
+    [HideInInspector]
     public int damege;
-    GameObject bulparent;
 
     private void Awake()
     {
-        tower = GameObject.FindGameObjectWithTag("tower").GetComponentInParent<Tower>();//Tower 오브젝트 저장
         towerBullet_rigid = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -20,7 +19,7 @@ public class Towerbullet : MonoBehaviour
     {
         damege = transform.parent.gameObject.GetComponent<Tower>().damege;//Tower의 damege 저장
 
-        Debug.Log(transform.parent.gameObject.GetComponent<Tower>().name + "의 데미지는 = " + damege);
+        //Debug.Log(transform.parent.gameObject.GetComponent<Tower>().name + "의 데미지는 = " + damege);
         Bulletmove();
 
     }
