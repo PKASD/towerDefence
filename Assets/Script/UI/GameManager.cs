@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour
     }
     void ActiveWinPanel()
     {
-        Debug.Log("win ="+win);
         if (win)
         {
             gameWinPanel.SetActive(true);

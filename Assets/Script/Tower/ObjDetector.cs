@@ -75,13 +75,13 @@ public class ObjDetector : MonoBehaviour
 
                     clickTower = hit.transform.gameObject;
                     towerredner = clickTower.GetComponent<SpriteRenderer>();
-
-                    unit_NameText.text = tower.unitName;
-                    unit_DurationText.text = tower.shild.ToString();
-                    unit_DamegeText.text = tower.damege.ToString();
-                    unit_ASpeedText.text = tower.attackSpeed.ToString();
-                    unit_ARangeText.text = tower.attackRange.ToString();
-
+                   
+                        unit_NameText.text = tower.unitName;
+                        unit_DurationText.text = tower.shild.ToString();
+                        unit_DamegeText.text = tower.damege.ToString();
+                        unit_ASpeedText.text = tower.attackSpeed.ToString();
+                        unit_ARangeText.text = tower.attackRange.ToString();
+                    
                     UnitInfoPanel.SetActive(true);
                     newUnitPanel.SetActive(false);
                     UpgradePanel.SetActive(true);
@@ -121,9 +121,9 @@ public class ObjDetector : MonoBehaviour
                             SubCreatTower(Tower_Green);
                             break;
                         default:
-                           /* towerpref = Tower;
-                            center.curEnergy -= tower.consumEnergy;
-                            towerSpawner.SpawnTower(towerpref, hitPosition);*/
+                            /* towerpref = Tower;
+                             center.curEnergy -= tower.consumEnergy;
+                             towerSpawner.SpawnTower(towerpref, hitPosition);*/
                             break;
                     }
                 }
@@ -131,7 +131,8 @@ public class ObjDetector : MonoBehaviour
         }
 
     }
-    void SubCreatTower(GameObject topref) {
+    void SubCreatTower(GameObject topref)
+    {
         if (center.curEnergy > tower.consumEnergy) //최소 에너지
         {
             towerSpawner.SpawnTower(topref, hitPosition);//선택 오브젝트 위치에 타워 설치

@@ -7,7 +7,7 @@ public class Status : MonoBehaviour
     [Header("State")]
     public string unitName;
     public int consumEnergy;
-    public int shild;
+    public int shild;// = H P
     public int damege;
     public float attackSpeed;
     public float attackRange;
@@ -65,11 +65,12 @@ public class Status : MonoBehaviour
             Destroy(this.gameObject);
             if (this.gameObject.CompareTag("enemy"))
             {
-                /*leftEnemy--;
-                Debug.Log(leftEnemy);*/
+                int i = 0;
+                i++;
+                /*leftEnemy -= 1;*/
+                Debug.Log(i);
             }
-            leftEnemy--;
-            Debug.Log(leftEnemy);
+            leftEnemy -= 1;
         }
        
     }
@@ -79,7 +80,6 @@ public class Status : MonoBehaviour
     }
     void PlayerWin()
     {
-        leftEnemy--;
         if (leftEnemy == 0 && eSpawner.enemyCount == eSpawner.maxEnemyCount)
         {
             GameManager.instance.win = true;
