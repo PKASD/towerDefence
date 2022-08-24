@@ -20,7 +20,6 @@ public class Status : MonoBehaviour
     public Transform bulletSpawn;//총알 생성 위치
     public GameObject parentObj; //총알 오브젝트 부모 오브젝트
 
-    [HideInInspector]
     int leftEnemy;
 
     protected SpriteRenderer render;
