@@ -20,8 +20,6 @@ public class Status : MonoBehaviour
     public Transform bulletSpawn;//총알 생성 위치
     public GameObject parentObj; //총알 오브젝트 부모 오브젝트
 
-    public int leftEnemy;
-
     protected SpriteRenderer render;
     protected Rigidbody2D rigid;
     protected Tower tower;
@@ -35,7 +33,6 @@ public class Status : MonoBehaviour
         enemy = GameObject.FindGameObjectWithTag("enemy").GetComponent<Enemy>();
         render = this.gameObject.GetComponent<SpriteRenderer>();
         eSpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
-        leftEnemy = eSpawner.maxEnemyCount;
     }
     protected virtual void FixedUpdate()
     {
@@ -65,24 +62,18 @@ public class Status : MonoBehaviour
             Destroy(this.gameObject);
             if (this.gameObject.CompareTag("enemy"))
             {
-                int i = 0;
-                i++;
-                /*leftEnemy -= 1;*/
-                Debug.Log(i);
+                GameManager.instance.killCount++;
+                if (GameManager.instance.killCount == eSpawner.maxEnemyCount && eSpawner.enemyCount == eSpawner.maxEnemyCount)
+                {
+                    GameManager.instance.win = true;
+                }
             }
-            leftEnemy -= 1;
         }
-       
     }
+
+
     void OffDamege()// 피격 이펙트 종료
     {
         render.color = new Color(1, 1, 1, 1);
-    }
-    void PlayerWin()
-    {
-        if (leftEnemy == 0 && eSpawner.enemyCount == eSpawner.maxEnemyCount)
-        {
-            GameManager.instance.win = true;
-        }
     }
 }

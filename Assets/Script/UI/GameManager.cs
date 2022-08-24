@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public bool win;
+    public int killCount;
 
     int shild;
     int energy;

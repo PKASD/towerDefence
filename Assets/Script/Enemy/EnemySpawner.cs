@@ -8,12 +8,16 @@ public class EnemySpawner : MonoBehaviour
     public GameObject parentpref;//적 오브젝트의 부모 오브젝트
 
     public int delay;
+    public int maxWave;
+    public int waveDelay;
+    int curWave;
     int random;
 
     public int maxEnemyCount;
     public int enemyCount;
     private void Awake()
     {
+        //StartCoroutine("Wave");
         StartCoroutine("SpawnEnemy");
     }
 
@@ -26,6 +30,15 @@ public class EnemySpawner : MonoBehaviour
             enemyCount++;
             CreatEnemy();
             yield return new WaitForSeconds(delay);
+        }
+    }
+    private IEnumerator Wave()//적 웨이브
+    {
+        enemyCount = 0;
+        while (curWave < maxWave)
+        {
+            yield return new WaitForSeconds(waveDelay);
+            curWave++;
         }
     }
     void CreatEnemy()//적 프리팹 생성
