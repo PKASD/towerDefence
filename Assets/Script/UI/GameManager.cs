@@ -7,12 +7,17 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     Center center;
+    EnemySpawner espawner;
 
     [Header("체력 바, 에너지 바")]
     public TMP_Text maxShildText;
     public TMP_Text curShildText;
     public TMP_Text maxEnergyText;
     public TMP_Text curEnergyText;
+
+    [Header("몬스터 웨이브")]
+    public TMP_Text maxWaveText;
+    public TMP_Text curWaveText;
 
     [Header("패널")]
     public GameObject gameOverPanel;
@@ -29,18 +34,23 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
+        espawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
         center = GameObject.FindGameObjectWithTag("Center").GetComponent<Center>();
+
         maxShildText.text = "/ " + center.shild; //최대 실드량
         maxEnergyText.text = "/ " + center.maxEnergy; //최대 실드량
+        maxWaveText.text = "/ " + espawner.maxWave; //최대 실드량
     }
 
     private void Update()
     {
         shild = center.shild;
         energy = center.curEnergy;
+        int wave = espawner.curWave;
 
         CurShild(shild);
         CurEnergy(energy);
+        CurWave(wave);
         ActiveWinPanel();
     }
 
@@ -57,6 +67,11 @@ public class GameManager : MonoBehaviour
     public void CurEnergy(int count) // ui 남은 에너지 텍스트 출력
     {
         curEnergyText.text = count.ToString();
+
+    }
+    public void CurWave(int count) // ui 남은 에너지 텍스트 출력
+    {
+        curWaveText.text = count.ToString();
 
     }
     void ActiveWinPanel()

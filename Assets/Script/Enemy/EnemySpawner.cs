@@ -7,38 +7,46 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemypref;
     public GameObject parentpref;//적 오브젝트의 부모 오브젝트
 
-    public int delay;
-    public int maxWave;
-    public int waveDelay;
-    int curWave;
     int random;
 
+    [Header("웨이브")]
+    public int maxWave;
+    public float waveDelay;
+    public int curWave;
+
+    [Header("적")]
     public int maxEnemyCount;
     public int enemyCount;
+    public int spawnDelay;
+
     private void Awake()
     {
-        //StartCoroutine("Wave");
         StartCoroutine("SpawnEnemy");
     }
 
     private IEnumerator SpawnEnemy()//최대 적 수만큼 생성
     {
-        enemyCount = 0;
-        while (enemyCount < maxEnemyCount)
-        {
-            random = Random.Range(-2, 2);
-            enemyCount++;
-            CreatEnemy();
-            yield return new WaitForSeconds(delay);
-        }
+       /* while (curWave < maxWave)
+        {*/
+            while (enemyCount < maxEnemyCount)
+            {
+                random = Random.Range(-2, 2);
+                enemyCount++;
+                CreatEnemy();
+                yield return new WaitForSeconds(spawnDelay);
+            }
+            Invoke("Wave", waveDelay);
+        //}
     }
-    private IEnumerator Wave()//적 웨이브
+    private void Wave()//적 웨이브
     {
-        enemyCount = 0;
-        while (curWave < maxWave)
+        if (enemyCount == maxEnemyCount)
         {
-            yield return new WaitForSeconds(waveDelay);
+            enemyCount = 0;
+            Debug.Log("enemyCount " + enemyCount);
+
             curWave++;
+            Debug.Log("curWave" + curWave);
         }
     }
     void CreatEnemy()//적 프리팹 생성
