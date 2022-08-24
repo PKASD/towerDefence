@@ -108,8 +108,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -3001449038190906842, guid: 20d6cce5c7ac33b4e97f0f98a09aa347, type: 3}
-  m_Color: {r: 1, g: 0.009137107, b: 0, a: 1}
+  m_Sprite: {fileID: 878546783, guid: 554b1faac6e222e42a9fbebc8f2d21fc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   attackSpeed: 10
   attackRange: 10
   moveSpeed: 0
-  bulletPref: {fileID: 6183071230108794897, guid: 59f5f619ebd9f0f45ae6d3f2d6357ede, type: 3}
+  bulletPref: {fileID: 4787680344931819056, guid: 5f70ed775cc3434419cfa25aed7e4d31, type: 3}
   bulletSpawn: {fileID: 8684510112610420275}
   parentObj: {fileID: 5604471588443556911}
 --- !u!50 &7078177149443762024

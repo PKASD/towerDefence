@@ -136,7 +136,7 @@ MonoBehaviour:
   shild: 30
   damege: 0
   attackSpeed: 5
-  attackRange: 5
+  attackRange: 3
   moveSpeed: 50
   bulletPref: {fileID: 7781274270242461441, guid: 7704e9535d419bf4f9fc4c0b917ebe4d, type: 3}
   bulletSpawn: {fileID: 6287017206714838859}

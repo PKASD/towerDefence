@@ -43,7 +43,14 @@ public class Enemy : Status
     {
         if (collision.CompareTag("TowerBullet"))
         {
-            OnDamege(tower.damege);
+            GameObject towerbul;
+            towerbul = collision.gameObject;
+
+            int hitdamege;
+            hitdamege = collision.gameObject.GetComponent<Towerbullet>().damege;
+
+            Debug.Log("맞았다 = "+tower.damege + "  총알은 ="+ towerbul);
+            OnDamege(hitdamege);
         }
     }
 }
