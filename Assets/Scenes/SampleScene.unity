@@ -10322,6 +10322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BombBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 1645507292662210944, guid: 64e547c34271d17478c73aec4b8926d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2843531158540325432, guid: 64e547c34271d17478c73aec4b8926d3, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -17869,7 +17873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &4215899455076029448
 SpriteRenderer:
   m_ObjectHideFlags: 0
