@@ -26,7 +26,6 @@ public class ImageChange : MonoBehaviour
     {
         float ShildPercent = center.shild / maxShild * 100;
 
-        Debug.Log("Shild = "+ShildPercent);
         if (79>=ShildPercent&& ShildPercent >= 50)
         {
             curimage.sprite = high_Shild;

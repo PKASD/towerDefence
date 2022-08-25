@@ -12193,12 +12193,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemypref: {fileID: 4680176715135458131, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
   parentpref: {fileID: 1393147187}
+  startLater: 0
   maxWave: 3
   waveDelay: 10
   curWave: 0
-  maxEnemyCount: 1
+  maxEnemyCount: 5
   enemyCount: 0
-  spawnDelay: 0
+  spawnDelay: 3
 --- !u!4 &1530544606
 Transform:
   m_ObjectHideFlags: 0

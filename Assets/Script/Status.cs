@@ -12,6 +12,7 @@ public class Status : MonoBehaviour
     public float attackSpeed;
     public float attackRange;
     public float moveSpeed;
+    public float bulletSpeed = 1;
     protected float timer;
     protected float delay;
 

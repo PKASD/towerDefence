@@ -12,7 +12,7 @@ public class ObjDetector : MonoBehaviour
     Container con;
     Camera cam;
     SpriteRenderer render;
-    SpriteRenderer towerredner;
+    SpriteRenderer towerRedner;
     Ray ray;
     RaycastHit2D hit;
     Vector3 hitPosition;
@@ -57,7 +57,10 @@ public class ObjDetector : MonoBehaviour
                 hitPosition = hit.transform.position;
                 if (hit.transform.gameObject.CompareTag("Container"))
                 {
-                    con = GameObject.Find(hit.transform.gameObject.name).GetComponent<Container>();//클릭한 컨테이너 오브젝트 con에 저장
+                    if (con == null)
+                    {
+                        con = GameObject.Find(hit.transform.gameObject.name).GetComponent<Container>();
+                    }
                     render = con.gameObject.GetComponent<SpriteRenderer>();
 
                     UnitInfoPanel.SetActive(false);
@@ -66,16 +69,14 @@ public class ObjDetector : MonoBehaviour
 
                     con.IsBuildTower = false;
 
-                    //if(Color = asdsad)
                 }
 
                 else if (hit.transform.gameObject.CompareTag("tower"))
                 {
-                    tower = hit.transform.GetComponent<Tower>(); // 클릭한 타워 오브젝트의 Tower 컴포넌트를 저장
-
+                    tower = hit.transform.GetComponent<Tower>(); // 클릭한 타워 오브젝트 Tower 컴포넌트를 저장
                     clickTower = hit.transform.gameObject;
-                    towerredner = clickTower.GetComponent<SpriteRenderer>();
-                   
+                    towerRedner = clickTower.GetComponent<SpriteRenderer>();
+                    Debug.Log(clickTower.transform.position);
                     UnitInfoPanel.SetActive(true);
                     newUnitPanel.SetActive(false);
                     UpgradePanel.SetActive(true);
@@ -108,21 +109,18 @@ public class ObjDetector : MonoBehaviour
                     switch (clickObj.name)
                     {
                         case "Tower_Red":
-                            Destroy(clickTower);
                             SubCreatTower(Tower_Red);
+                            
                             break;
                         case "Tower_Blue":
-                            Destroy(clickTower);
                             SubCreatTower(Tower_Blue);
                             break;
                         case "Tower_Green":
-                            Destroy(clickTower);
+                            
                             SubCreatTower(Tower_Green);
                             break;
                         default:
-                            /* towerpref = Tower;
-                             center.curEnergy -= tower.consumEnergy;
-                             towerSpawner.SpawnTower(towerpref, hitPosition);*/
+                            Destroy(clickObj);
                             break;
                     }
                 }
@@ -132,6 +130,8 @@ public class ObjDetector : MonoBehaviour
     }
     void SubCreatTower(GameObject topref)
     {
+        Destroy(clickTower);
+        Debug.Log(topref);
         if (center.curEnergy > tower.consumEnergy) //최소 에너지
         {
             towerSpawner.SpawnTower(topref, hitPosition);//선택 오브젝트 위치에 타워 설치

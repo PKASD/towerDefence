@@ -8,18 +8,18 @@ public class bullet : MonoBehaviour
     Rigidbody2D bullet_rigid;
     Enemy enemy;
     int damege;
-
+    float bulletSpeed;
     private void Awake()
     {
         enemy = GameObject.FindGameObjectWithTag("enemy").GetComponent<Enemy>();
         damege = enemy.damege;
-
+        bulletSpeed = enemy.bulletSpeed;
         bullet_rigid = gameObject.GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
-        bullet_rigid.AddForce(Vector2.left * 1, ForceMode2D.Impulse);//ÃÑ¾Ë ÀÌµ¿
+        bullet_rigid.AddForce(Vector2.left * bulletSpeed, ForceMode2D.Impulse);//ÃÑ¾Ë ÀÌµ¿
 
     }
 
