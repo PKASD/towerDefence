@@ -17,40 +17,42 @@ public class EnemySpawner : MonoBehaviour
     [Header("적")]
     public int maxEnemyCount;
     public int enemyCount;
-    public int spawnDelay;
+    public float spawnDelay;
 
     private void Awake()
     {
-        StartCoroutine("SpawnEnemy");
+        StartCoroutine("Wave");
     }
-
-    private IEnumerator SpawnEnemy()//최대 적 수만큼 생성
+    private IEnumerator Wave()//최대 적 수만큼 생성
     {
-       /* while (curWave < maxWave)
-        {*/
-            while (enemyCount < maxEnemyCount)
-            {
-                random = Random.Range(-2, 2);
-                enemyCount++;
-                CreatEnemy();
-                yield return new WaitForSeconds(spawnDelay);
-            }
-            Invoke("Wave", waveDelay);
-        //}
-    }
-    private void Wave()//적 웨이브
-    {
-        if (enemyCount == maxEnemyCount)
+        while(curWave < maxWave)
         {
-            enemyCount = 0;
-            Debug.Log("enemyCount " + enemyCount);
-
             curWave++;
-            Debug.Log("curWave" + curWave);
+            StartCoroutine("SpawnEnemy");
+            yield return new WaitForSeconds(waveDelay);
         }
     }
+    private IEnumerator SpawnEnemy()//최대 적 수만큼 생성
+    {
+        for (int i= enemyCount; i < maxEnemyCount; i++)
+        {
+            random = Random.Range(-2, 2);
+
+            CreatEnemy();
+
+            if (enemyCount >= maxEnemyCount)
+            {
+                enemyCount = 0;
+            }
+
+            yield return new WaitForSeconds(spawnDelay);
+           
+        }
+    }
+
     void CreatEnemy()//적 프리팹 생성
     {
+        enemyCount++;
         GameObject EnemyObj = Instantiate(enemypref, new Vector3(transform.position.x,
                 transform.position.y + random, transform.position.z), Quaternion.identity);
 

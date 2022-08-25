@@ -20,6 +20,7 @@ public class Status : MonoBehaviour
     public Transform bulletSpawn;//총알 생성 위치
     public GameObject parentObj; //총알 오브젝트 부모 오브젝트
 
+    protected Center center;
     protected SpriteRenderer render;
     protected Rigidbody2D rigid;
     protected Tower tower;
@@ -29,6 +30,7 @@ public class Status : MonoBehaviour
     protected virtual void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        center = GameObject.FindGameObjectWithTag("Center").GetComponent<Center>();
         tower = GameObject.FindGameObjectWithTag("tower").GetComponent<Tower>();
         enemy = GameObject.FindGameObjectWithTag("enemy").GetComponent<Enemy>();
         render = this.gameObject.GetComponent<SpriteRenderer>();
@@ -63,7 +65,7 @@ public class Status : MonoBehaviour
             if (this.gameObject.CompareTag("enemy"))
             {
                 GameManager.instance.killCount++;
-                if (GameManager.instance.killCount == eSpawner.maxEnemyCount && eSpawner.enemyCount == eSpawner.maxEnemyCount)
+                if (GameManager.instance.killCount == eSpawner.maxWave * eSpawner.maxEnemyCount && center.shild >= 1)
                 {
                     GameManager.instance.win = true;
                 }
