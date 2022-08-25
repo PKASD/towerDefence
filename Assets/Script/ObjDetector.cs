@@ -27,12 +27,20 @@ public class ObjDetector : MonoBehaviour
     public TMP_Text unit_ASpeedText;
     public TMP_Text unit_ARangeText;
 
+    [Header("Å¸¿ö ÇÁ¸®ÆÕ")]
     public GameObject Tower;
     public GameObject Tower_Red;
     public GameObject Tower_Blue;
     public GameObject Tower_Green;
-
-
+    public GameObject Tower_Red_1;
+    public GameObject Tower_Blue_1;
+    public GameObject Tower_Green_1;
+    public GameObject Tower_Red_2;
+    public GameObject Tower_Blue_2;
+    public GameObject Tower_Green_2;
+    public GameObject Tower_Red_3;
+    public GameObject Tower_Blue_3;
+    public GameObject Tower_Green_3;
     void Awake()
     {
         cam = Camera.main;
@@ -112,14 +120,45 @@ public class ObjDetector : MonoBehaviour
                     {
                         case "Tower_Red":
                             SubCreatTower(Tower_Red);
-                            
                             break;
                         case "Tower_Blue":
                             SubCreatTower(Tower_Blue);
                             break;
                         case "Tower_Green":
-                            
                             SubCreatTower(Tower_Green);
+                            break;
+
+
+                        case "Tower_Red_1":
+                            SubCreatTower(Tower_Red_1);
+                            break;
+                        case "Tower_Blue_1":
+                            SubCreatTower(Tower_Blue_1);
+                            break;
+                        case "Tower_Green_1":
+                            SubCreatTower(Tower_Green_1);
+                            break;
+
+
+                        case "Tower_Red_2":
+                            SubCreatTower(Tower_Red_2);
+                            break;
+                        case "Tower_Blue_2":
+                            SubCreatTower(Tower_Blue_2);
+                            break;
+                        case "Tower_Green_2":
+                            SubCreatTower(Tower_Green_2);
+                            break;
+
+
+                        case "Tower_Red_3":
+                            SubCreatTower(Tower_Green_2);
+                            break;
+                        case "Tower_Blue_3":
+                            SubCreatTower(Tower_Blue_3);
+                            break;
+                        case "Tower_Green_3":
+                            SubCreatTower(Tower_Green_3);
                             break;
                         default:
                             Destroy(clickObj);
@@ -130,6 +169,7 @@ public class ObjDetector : MonoBehaviour
         }
 
     }
+   
     void SubCreatTower(GameObject topref)
     {
         Destroy(clickTower);
