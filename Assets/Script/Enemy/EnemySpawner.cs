@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     int random;
 
     [Header("웨이브")]
+    public float startLater;
     public int maxWave;
     public float waveDelay;
     public int curWave;
@@ -25,7 +26,8 @@ public class EnemySpawner : MonoBehaviour
     }
     private IEnumerator Wave()//최대 적 수만큼 생성
     {
-        while(curWave < maxWave)
+        yield return new WaitForSeconds(startLater);
+        while (curWave < maxWave)
         {
             curWave++;
             StartCoroutine("SpawnEnemy");
