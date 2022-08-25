@@ -212,9 +212,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a16747f535c95409bca09e229751f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  high_HP: {fileID: 21300000, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
-  half_HP: {fileID: 21300002, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
-  low_HP: {fileID: 21300006, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+  full_Shild: {fileID: 21300004, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+  high_Shild: {fileID: 21300000, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+  half_Shild: {fileID: 21300002, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
+  low_Shild: {fileID: 21300006, guid: d79edf18a76e2654a9ac99f15de8b2b3, type: 3}
 --- !u!1 &78436620
 GameObject:
   m_ObjectHideFlags: 0
@@ -5139,7 +5140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: 
   consumEnergy: 0
-  shild: 9999
+  shild: 100
   damege: 0
   attackSpeed: 0
   attackRange: 0
@@ -12192,8 +12193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemypref: {fileID: 4680176715135458131, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
   parentpref: {fileID: 1393147187}
-  maxWave: 2
-  waveDelay: 3
+  maxWave: 3
+  waveDelay: 10
   curWave: 0
   maxEnemyCount: 1
   enemyCount: 0
