@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Enemy : Status
 {
+    Towerbullet towerbullet;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        towerbullet = GameObject.FindGameObjectWithTag("TowerBullet").GetComponent<Towerbullet>();
+    }
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -54,7 +61,10 @@ public class Enemy : Status
             hitdamege = collision.gameObject.GetComponent<Towerbullet>().damege;
 
             //Debug.Log("맞았다 = "+ hitdamege + "  총알은 ="+ towerbul.name);
-            OnDamege(hitdamege);
+            if (!towerbullet.hit)
+            {
+                OnDamege(hitdamege);
+            }
         }
     }
 

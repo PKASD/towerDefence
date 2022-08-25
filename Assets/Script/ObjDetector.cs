@@ -80,6 +80,8 @@ public class ObjDetector : MonoBehaviour
                     UnitInfoPanel.SetActive(true);
                     newUnitPanel.SetActive(false);
                     UpgradePanel.SetActive(true);
+
+                    con.IsBuildTower = true;
                 }
             }
         }
@@ -141,12 +143,3 @@ public class ObjDetector : MonoBehaviour
     }
 
 }
-
-
-
-/*                    render.color = new Color32(23, 23, 23, 73);//클릭 시 색 변화
-
-                    if (hit.transform.gameObject.CompareTag("Container"))
-                    {
-                        render.color = new Color32(255, 255, 255, 70);
-                    }*/

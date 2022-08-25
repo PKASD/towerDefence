@@ -128,11 +128,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Tower
   consumEnergy: 50
-  shild: 100
-  damege: 10
+  shild: 10000
+  damege: 100
   attackSpeed: 10
   attackRange: 10
   moveSpeed: 0
+  bulletSpeed: 1
   bulletPref: {fileID: 6183071230108794897, guid: 59f5f619ebd9f0f45ae6d3f2d6357ede, type: 3}
   bulletSpawn: {fileID: 1927311336225367765}
   parentObj: {fileID: 3458106640792284361}

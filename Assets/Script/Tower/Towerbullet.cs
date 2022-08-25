@@ -9,10 +9,12 @@ public class Towerbullet : MonoBehaviour
 
     [HideInInspector]
     public int damege;
+    public bool hit;
 
     private void Awake()
     {
         towerBullet_rigid = gameObject.GetComponent<Rigidbody2D>();
+        hit = false;
     }
 
     void FixedUpdate()
@@ -28,6 +30,11 @@ public class Towerbullet : MonoBehaviour
     {
         if (other.CompareTag("enemy")) // Tower¿¡ ºÎµúÈ÷¸é ÃÑ¾Ë ÆÄ±«
         {
+            hit = true;
+            if (hit)
+            {
+                Debug.Log(hit);
+            }
             Destroy(this.gameObject);
         }
     }

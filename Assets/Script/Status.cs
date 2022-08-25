@@ -25,6 +25,7 @@ public class Status : MonoBehaviour
     protected SpriteRenderer render;
     protected Rigidbody2D rigid;
     protected BoxCollider2D col;
+
     protected Tower tower;
     protected Enemy enemy;
     EnemySpawner eSpawner;

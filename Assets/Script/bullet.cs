@@ -9,6 +9,7 @@ public class bullet : MonoBehaviour
     Enemy enemy;
     int damege;
     float bulletSpeed;
+    
     private void Awake()
     {
         enemy = GameObject.FindGameObjectWithTag("enemy").GetComponent<Enemy>();
