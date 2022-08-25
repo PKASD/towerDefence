@@ -5139,7 +5139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: 
   consumEnergy: 0
-  shild: 100
+  shild: 9999
   damege: 0
   attackSpeed: 0
   attackRange: 0
@@ -12192,12 +12192,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemypref: {fileID: 4680176715135458131, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
   parentpref: {fileID: 1393147187}
-  maxWave: 5
+  maxWave: 2
   waveDelay: 3
-  curWave: 1
-  maxEnemyCount: 3
+  curWave: 0
+  maxEnemyCount: 1
   enemyCount: 0
-  spawnDelay: 1
+  spawnDelay: 0
 --- !u!4 &1530544606
 Transform:
   m_ObjectHideFlags: 0

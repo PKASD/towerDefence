@@ -22,7 +22,7 @@ public class Enemy : Status
                 delay = 10.0f / attackSpeed;// 공격 속도
 
                 Stop();
-                if (timer > delay)// 1초 후 공격
+                if (timer > delay)// delay 후 공격
                 {
                     timer = 0;
 

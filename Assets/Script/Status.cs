@@ -23,12 +23,14 @@ public class Status : MonoBehaviour
     protected Center center;
     protected SpriteRenderer render;
     protected Rigidbody2D rigid;
+    protected BoxCollider2D col;
     protected Tower tower;
     protected Enemy enemy;
     EnemySpawner eSpawner;
 
     protected virtual void Awake()
     {
+        col = GetComponent<BoxCollider2D>();
         rigid = GetComponent<Rigidbody2D>();
         center = GameObject.FindGameObjectWithTag("Center").GetComponent<Center>();
         tower = GameObject.FindGameObjectWithTag("tower").GetComponent<Tower>();
@@ -49,7 +51,7 @@ public class Status : MonoBehaviour
            bulletSpawn.position.y, bulletSpawn.position.z), Quaternion.identity);// 총알 프리팹 생성
 
         bulletObj.transform.SetParent(parentObj.transform, true);// 부모 오브젝트에 하위 오브젝트로 생성
-
+        
     }
     protected virtual void OnDamege(int n) // 오브젝트 피격
     {
@@ -61,14 +63,24 @@ public class Status : MonoBehaviour
         }
         else if (shild <= 0)//오브젝트 사망
         {
-            Destroy(this.gameObject);
+            col.enabled = false;
+            render.enabled = false;
+            
+            Destroy(this.gameObject,2.0f);
+           
             if (this.gameObject.CompareTag("enemy"))
             {
+                this.gameObject.GetComponent<Enemy>().enabled = false;
                 GameManager.instance.killCount++;
                 if (GameManager.instance.killCount == eSpawner.maxWave * eSpawner.maxEnemyCount && center.shild >= 1)
                 {
                     GameManager.instance.win = true;
                 }
+            }
+            if (this.gameObject.CompareTag("tower"))
+            {
+                this.gameObject.GetComponent<Tower>().enabled = false;
+               
             }
         }
     }

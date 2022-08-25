@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd179de239bc5644080ff14c95fa5472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Tree
+  unitName: Tower
   consumEnergy: 50
   shild: 100
   damege: 10
@@ -136,7 +136,6 @@ MonoBehaviour:
   bulletPref: {fileID: 6183071230108794897, guid: 59f5f619ebd9f0f45ae6d3f2d6357ede, type: 3}
   bulletSpawn: {fileID: 1927311336225367765}
   parentObj: {fileID: 3458106640792284361}
-  leftEnemy: 0
 --- !u!50 &549750670
 Rigidbody2D:
   serializedVersion: 4

@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
         {
             curWave++;
             StartCoroutine("SpawnEnemy");
+
             yield return new WaitForSeconds(waveDelay);
         }
     }

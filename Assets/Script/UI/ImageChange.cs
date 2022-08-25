@@ -7,9 +7,10 @@ public class ImageChange : MonoBehaviour
 {
     Center center;
 
-    public Sprite high_HP;
-    public Sprite half_HP;
-    public Sprite low_HP;
+    public Sprite full_Shild;
+    public Sprite high_Shild;
+    public Sprite half_Shild;
+    public Sprite low_Shild;
     float maxShild;
     Image curimage;
 
@@ -25,20 +26,21 @@ public class ImageChange : MonoBehaviour
     {
         float ShildPercent = center.shild / maxShild * 100;
 
+        Debug.Log("Shild = "+ShildPercent);
         if (79>=ShildPercent&& ShildPercent >= 50)
         {
-            curimage.sprite = high_HP;
+            curimage.sprite = high_Shild;
         }
         else if (49 >= ShildPercent && ShildPercent >= 21)
         {
-            curimage.sprite = half_HP;
+            curimage.sprite = half_Shild;
         }
-        else if (ShildPercent >= 20)
+        else if (ShildPercent <= 20)
         {
-            curimage.sprite = low_HP;
+            curimage.sprite = low_Shild;
         }
         else {
-
+            curimage.sprite = full_Shild;
         }
     }
 }
