@@ -50,9 +50,10 @@ public class Enemy : Status
     }
     public void Stop()
     {
+        anim.SetBool("walk", false);
         this.gameObject.GetComponent<Animator>().enabled = true;
         transform.position += new Vector3(1, 0, 0) * moveSpeed / 1000;//¿˚ ∏ÿ√„
-        anim.SetBool("walk", false);
+       
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
