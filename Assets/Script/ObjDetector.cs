@@ -133,7 +133,6 @@ public class ObjDetector : MonoBehaviour
     void SubCreatTower(GameObject topref)
     {
         Destroy(clickTower);
-        Debug.Log(topref);
         if (center.curEnergy > tower.consumEnergy) //최소 에너지
         {
             towerSpawner.SpawnTower(topref, hitPosition);//선택 오브젝트 위치에 타워 설치

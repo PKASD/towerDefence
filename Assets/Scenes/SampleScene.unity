@@ -8235,15 +8235,6 @@ MonoBehaviour:
   Tower_Red: {fileID: 5604471588443556911, guid: 3c9d94101a034a04180ec256affd63fa, type: 3}
   Tower_Blue: {fileID: 429661850789165401, guid: c6aaaa45fc266f049b4bd4bedb061e99, type: 3}
   Tower_Green: {fileID: 7145231683041018167, guid: 615f1aa6c5900d34798052538b90a753, type: 3}
-  Tower_Red_1: {fileID: 0}
-  Tower_Blue_1: {fileID: 0}
-  Tower_Green_1: {fileID: 0}
-  Tower_Red_2: {fileID: 0}
-  Tower_Blue_2: {fileID: 0}
-  Tower_Green_2: {fileID: 0}
-  Tower_Red_3: {fileID: 0}
-  Tower_Blue_3: {fileID: 0}
-  Tower_Green_3: {fileID: 0}
 --- !u!4 &756866236
 Transform:
   m_ObjectHideFlags: 0
@@ -16007,12 +15998,12 @@ MonoBehaviour:
   enemypref: {fileID: 4680176715135458131, guid: b1bed778c45d94b44a7acf00bca0d4c8, type: 3}
   parentpref: {fileID: 1393147187}
   startLater: 0
-  maxWave: 1
-  waveDelay: 2
+  maxWave: 2
+  waveDelay: 15
   curWave: 0
   maxEnemyCount: 10
   enemyCount: 0
-  spawnDelay: 0
+  spawnDelay: 2
 --- !u!4 &1530544606
 Transform:
   m_ObjectHideFlags: 0
