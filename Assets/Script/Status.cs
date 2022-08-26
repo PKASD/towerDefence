@@ -28,7 +28,7 @@ public class Status : MonoBehaviour
 
     protected Tower tower;
     protected Enemy enemy;
-    EnemySpawner eSpawner;
+    protected EnemySpawner eSpawner;
 
     protected virtual void Awake()
     {

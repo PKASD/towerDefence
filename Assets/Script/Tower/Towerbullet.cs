@@ -6,6 +6,8 @@ public class Towerbullet : MonoBehaviour
 {
     Status status;
     Rigidbody2D towerBullet_rigid;
+    List<GameObject> list;
+    Enemy enemy;
 
     [HideInInspector]
     public int damege;
@@ -13,6 +15,8 @@ public class Towerbullet : MonoBehaviour
 
     private void Awake()
     {
+        list = new List<GameObject>();
+        enemy = GameObject.FindGameObjectWithTag("enemy").GetComponent<Enemy>();
         towerBullet_rigid = gameObject.GetComponent<Rigidbody2D>();
         hit = false;
     }
@@ -23,18 +27,14 @@ public class Towerbullet : MonoBehaviour
 
         //Debug.Log(transform.parent.gameObject.GetComponent<Tower>().name + "ÀÇ µ¥¹ÌÁö´Â = " + damege);
         Bulletmove();
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("enemy")) // Tower¿¡ ºÎµúÈ÷¸é ÃÑ¾Ë ÆÄ±«
+        if (other.CompareTag("enemy")&&hit==false) // Tower¿¡ ºÎµúÈ÷¸é ÃÑ¾Ë ÆÄ±«
         {
             hit = true;
-            if (hit)
-            {
-                Debug.Log(hit);
-            }
+            other.gameObject.GetComponent<Enemy>() .shild -= damege;
             Destroy(this.gameObject);
         }
     }

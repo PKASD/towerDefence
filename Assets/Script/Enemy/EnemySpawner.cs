@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i= enemyCount; i < maxEnemyCount; i++)
         {
-            random = Random.Range(-2, 2);
+            random = Random.Range(-2, 3);
 
             CreatEnemy();
 

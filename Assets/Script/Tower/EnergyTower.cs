@@ -10,8 +10,14 @@ public class EnergyTower : Tower
     }
     private void OnTriggerStay(Collider other)
     {
+        bool increase=false;
+        
         if (other.CompareTag("tower")) {
-            tower.attackSpeed += 5;
+            if (increase)
+            {
+                tower.attackSpeed += 5;
+                increase = true;
+            }
         }
     }
 }
